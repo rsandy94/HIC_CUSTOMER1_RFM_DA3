@@ -134,9 +134,9 @@ df[['Customer ID', 'R_Score', 'F_Score', 'M_Score', 'RFM_Score']].head()
 def segment_customers(df):
     if df['RFM_Score'] == '111': #it needs to be 444 for the best customer? A best customer is someone who purchase frequently, more recent and high monetary value
         return 'Best Customer'
-    elif df['RFM_Score'].startswith('1'):
-        return 'Loyal Customer'
-    elif df['RFM_Score'][0] == '4':
+     elif df['RFM_Score'][1] == '4':  # For loyal, we can use frequency to determine loyalty
+        return 'Loyal Customer' 
+    elif df['RFM_Score'][0] == '1': # Churned customer- Recency in first quadrant
         return 'Churned Customer'
     elif df['RFM_Score'][2] == '4':
         return 'High-Spending Customer'
