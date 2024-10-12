@@ -191,14 +191,19 @@ By completing these tasks, the learner will be able to:
 ```python
 # Define clusters based on customer segment or RFM scores
 def assign_cluster(df):
-    if df['RFM_Score'] == '111':
+    # Top Tier: High Recency, High Frequency, High Monetary
+    if df['RFM_Score'] == '444':
         return 'Top Tier Customers'
-    elif df['RFM_Score'].startswith('1'):
+    # High Tier: Moderate to High Frequency, Moderate to High Monetary, High Recency
+    elif df['RFM_Score'].startswith('4'):
         return 'High Tier Customers'
-    elif df['RFM_Score'][0] == '2':
-        return 'Mid High Tier Customers'
+    # Mid High Tier: Moderate Recency
     elif df['RFM_Score'][0] == '3':
+        return 'Mid High Tier Customers'
+    # Mid Tier: At risk customers with moderate recency
+    elif df['RFM_Score'][0] == '2':
         return 'Mid Tier Customers'
+    # Low Tier: Churned or low-value customers
     else:
         return 'Low Tier Customers'
 
