@@ -130,8 +130,9 @@ df[['Customer ID', 'R_Score', 'F_Score', 'M_Score', 'RFM_Score']].head()
 
 ```python
 # Segment customers based on RFM Score
+#Can we add more segments like worst customer,  low spending customer? Couldnt see a segment for frequency. A segment for frequenct spenders and non frequent spenders?
 def segment_customers(df):
-    if df['RFM_Score'] == '111':
+    if df['RFM_Score'] == '111': #it needs to be 444 for the best customer? A best customer is someone who purchase frequently, more recent and high monetary value
         return 'Best Customer'
     elif df['RFM_Score'].startswith('1'):
         return 'Loyal Customer'
